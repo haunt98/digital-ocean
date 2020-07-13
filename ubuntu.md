@@ -12,6 +12,9 @@ swapon /swapfile
 cp /etc/fstab /etc/fstab.bak
 echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
 
+# Check swap
+free -h
+
 # Essential
 apt install -y \
     build-essential \
