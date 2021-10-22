@@ -10,15 +10,14 @@ dnf upgrade && dnf autoremove
 dnf install \
     sudo \
     neovim git tmux curl wget rsync \
-    rust-fd-find rust-bat ripgrep \
+    htop fd-find bat ripgrep \
     go
 
 # Enable wheel group
 EDITOR=nvim visudo
 
 # Add user
-systemctl enable --now systemd-homed.service
-homectl create joker --member-of=wheel
+useradd -m -G wheel joker
 
 # https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04
 rsync --archive --chown=joker:joker ~/.ssh /home/joker
